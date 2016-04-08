@@ -129,12 +129,22 @@
         [13, 233, 55]
       ];
 
-      $('.col-md-2').each(function(index, elem) {
-        var red = data[index][0];
-        var green = data[index][1];
-        var blue = data[index][2];
-        var bg = "rgb(" + red + "," + green + "," + blue + ")";
-        $(elem).css({'background-color': bg});
+      var isrcs = ['GBH481500074'];
+
+      isrcs.forEach(function(isrc){
+
+        $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=GBH481500074', function(data){
+          console.log(data);
+        });
+
+        // $('.col-md-2').each(function(index, elem) {
+        //   var red = data[index][0];
+        //   var green = data[index][1];
+        //   var blue = data[index][2];
+        //   var bg = "rgb(" + red + "," + green + "," + blue + ")";
+        //   $(elem).css({'background-color': bg});
+        // });
+
       });
     </script>
   </body>
