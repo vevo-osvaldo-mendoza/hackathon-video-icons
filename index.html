@@ -94,13 +94,11 @@
         </div>
       </div>
 
-      <div class="info">
+      <div class="info" id="info">
         <div class="artist-image" id="artist-image">
         </div>
-
         <div class="artist-name" id="artist-name">
         </div>
-
         <div class="video-title" id="video-title">
         </div>
       </div>
@@ -122,6 +120,8 @@
           console.log('currentIndex', currentIndex);
           var isrc = isrcs[currentIndex];
 
+          $('#info').fadeOut(400);
+
           $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=' + isrc, function(rgb_values){
 
             $.get('https://apiv2.vevo.com/video/' + isrc + '?partnerId=af330f2c-5617-4e57-81b5-4a6edbef07cc', function(data) {
@@ -129,6 +129,10 @@
               $('#artist-image').css('background-image', 'url(' + artist.thumbnailUrl + ')');
               $('#artist-name').html(artist.name);
               $('#video-title').html(data.title);
+
+              setTimeout(function(){
+                $('#info').fadeIn(3000);
+              }, 5000);
             });
 
             console.log('Switching colors for isrc: ' + isrc);
