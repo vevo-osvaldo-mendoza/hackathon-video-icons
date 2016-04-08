@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 .custom-col {
   width: 20%;
   border: 1px solid red;
