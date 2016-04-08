@@ -95,8 +95,7 @@
       </div>
 
       <div class="info">
-        <div class="artist-image">
-          <img id="artist-image" height="120px" width="120px" />
+        <div class="artist-image" id="artist-image">
         </div>
 
         <div class="artist-name" id="artist-name">
@@ -127,7 +126,7 @@
 
             $.get('https://apiv2.vevo.com/video/' + isrc + '?partnerId=af330f2c-5617-4e57-81b5-4a6edbef07cc', function(data) {
               var artist = data.artists[0];
-              $('#artist-image').attr('src', artist.thumbnailUrl);
+              $('#artist-image').css('background-image', 'url(' + artist.thumbnailUrl + ')');
               $('#artist-name').html(artist.name);
               $('#video-title').html(data.title);
             });
