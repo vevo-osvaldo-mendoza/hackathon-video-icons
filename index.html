@@ -106,7 +106,6 @@
       isrcs.forEach(function(isrc){
         $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=GBH481500074', function(rgb_values){
             $('.col-md-2').each(function(index, elem) {
-              debugger;
               var red = rgb_values[index][0];
               var green = rgb_values[index][1];
               var blue = rgb_values[index][2];
