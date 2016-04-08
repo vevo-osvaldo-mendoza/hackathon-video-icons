@@ -111,6 +111,11 @@
           var isrc = isrcs[currentIndex];
 
           $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=' + isrc, function(rgb_values){
+
+            $.get('https://apiv2.vevo.com/video/' + isrc + '?partnerId=af330f2c-5617-4e57-81b5-4a6edbef07cc', function(data) {
+              console.log('data', data);
+            });
+            
             console.log('Switching colors for isrc: ' + isrc);
 
             $('.col-md-2').each(function(index, elem) {
