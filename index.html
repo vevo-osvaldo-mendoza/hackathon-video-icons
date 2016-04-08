@@ -101,50 +101,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-      var data = [
-        [255, 0, 0],
-        [0, 255, 0],
-        [0, 0, 255],
-        [35, 44, 56],
-        [13, 233, 55],
-        [255, 0, 0],
-        [0, 255, 0],
-        [0, 0, 255],
-        [35, 44, 56],
-        [13, 233, 55],
-        [255, 0, 0],
-        [0, 255, 0],
-        [0, 0, 255],
-        [35, 44, 56],
-        [13, 233, 55],
-        [255, 0, 0],
-        [0, 255, 0],
-        [0, 0, 255],
-        [35, 44, 56],
-        [13, 233, 55],
-        [255, 0, 0],
-        [0, 255, 0],
-        [0, 0, 255],
-        [35, 44, 56],
-        [13, 233, 55]
-      ];
-
       var isrcs = ['GBH481500074'];
 
       isrcs.forEach(function(isrc){
-
-        $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=GBH481500074', function(data){
-          console.log(data);
+        $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=GBH481500074', function(rgb_values){
+            $('.col-md-2').each(function(index, elem) {
+              var red = rgb_values[index][0];
+              var green = rgb_values[index][1];
+              var blue = rgb_values[index][2];
+              var bg = "rgb(" + red + "," + green + "," + blue + ")";
+              $(elem).css({'background-color': bg});
+            });
         });
-
-        // $('.col-md-2').each(function(index, elem) {
-        //   var red = data[index][0];
-        //   var green = data[index][1];
-        //   var blue = data[index][2];
-        //   var bg = "rgb(" + red + "," + green + "," + blue + ")";
-        //   $(elem).css({'background-color': bg});
-        // });
-
       });
     </script>
   </body>
