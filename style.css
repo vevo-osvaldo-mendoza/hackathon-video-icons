@@ -7,6 +7,11 @@ html, body, .container-fluid {
   border: 1px solid red;
 }
 
+.col-md-2 {
+  height: 100%;
+  border: 1px solid red;
+}
+
 .row {
   height: 20%;
 }
