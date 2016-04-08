@@ -16,6 +16,7 @@ html, body, .container-fluid {
 .info {
   color: #FFFFFF;
   position: absolute;
+  left: 20px;
   bottom: 20px;
   font-family: 'Open Sans', sans-serif;
   background: rgba(0,0,0,.2);
