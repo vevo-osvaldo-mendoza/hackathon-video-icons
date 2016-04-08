@@ -12,3 +12,12 @@ html, body, .container-fluid {
 .row {
   height: 20%;
 }
+
+.info {
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+  background: rgba(0,0,0,.2);
+  padding: 10px;
+}
