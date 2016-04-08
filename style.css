@@ -20,12 +20,13 @@ html, body, .container-fluid {
   font-family: 'Open Sans', sans-serif;
   background: rgba(0,0,0,.2);
   padding: 10px;
+  display: none;
 }
 
 .artist-image {
   height: 120px;
   width: 120px;
-  background-size: cover;       
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
