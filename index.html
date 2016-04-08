@@ -101,31 +101,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-      var isrcs = ['GBH481500074', 'QMFUA1590146', 'USCJY1531578'];
-      var currentIndex = 0;
-      var maxIndex = isrcs.length - 1;
+      (function() {
+        var isrcs = ['GBH481500074', 'QMFUA1590146', 'USCJY1531578'];
+        var currentIndex = 0;
+        var maxIndex = isrcs.length - 1;
 
-      setInterval(function(){
-        var isrc = isrcs[currentIndex];
+        setInterval(function(){
+          console.log('currentIndex', currentIndex);
+          var isrc = isrcs[currentIndex];
 
-        $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=' + isrc, function(rgb_values){
-          console.log('Switching colors for isrc: ' + isrc);
+          $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=' + isrc, function(rgb_values){
+            console.log('Switching colors for isrc: ' + isrc);
 
-          $('.col-md-2').each(function(index, elem) {
-            var red = rgb_values[index][0];
-            var green = rgb_values[index][1];
-            var blue = rgb_values[index][2];
-            var bg = "rgb(" + red + "," + green + "," + blue + ")";
-            $(elem).css({'background-color': bg});
+            $('.col-md-2').each(function(index, elem) {
+              if(rgb_values[index]) {
+                var red = rgb_values[index][0];
+                var green = rgb_values[index][1];
+                var blue = rgb_values[index][2];
+                var bg = "rgb(" + red + "," + green + "," + blue + ")";
+                $(elem).css({'background-color': bg});
+              }
+            });
+
+            if(currentIndex === maxIndex) {
+              currentIndex = 0;
+            }else {
+              currentIndex += 1;
+            }
           });
-
-          if(currentIndex === maxIndex) {
-            currentIndex = 0;
-          }else {
-            currentIndex += 1;
-          }
-        });
-      }, 20000);
+        }, 20000);
+      })();
     </script>
   </body>
 </html>
