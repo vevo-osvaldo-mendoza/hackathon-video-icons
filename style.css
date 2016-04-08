@@ -6,6 +6,7 @@ html, body, .container-fluid {
 .col-md-2 {
   height: 100%;
   width: 20% !important;
+  transition: background-color 1s ease;
 }
 
 .row {
