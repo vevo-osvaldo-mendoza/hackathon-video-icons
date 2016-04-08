@@ -133,7 +133,8 @@
         var red = data[index][0];
         var green = data[index][1];
         var blue = data[index][2];
-        $(elem).css({'background-color', "rgb(" + red + "," + green + "," + blue + ")"});
+        var bg = "rgb(" + red + "," + green + "," + blue + ")";
+        $(elem).css({'background-color': bg});
       });
     </script>
   </body>
