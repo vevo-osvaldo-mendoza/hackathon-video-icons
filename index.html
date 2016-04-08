@@ -93,6 +93,18 @@
         </div>
       </div>
 
+      <div class="info">
+        <div class="artist-image">
+          <img id="artist-image" />
+        </div>
+
+        <div class="artist-name" id="artist-name">
+        </div>
+
+        <div class="video-title" id="video-title">
+        </div>
+      </div>
+
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -113,9 +125,12 @@
           $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=' + isrc, function(rgb_values){
 
             $.get('https://apiv2.vevo.com/video/' + isrc + '?partnerId=af330f2c-5617-4e57-81b5-4a6edbef07cc', function(data) {
-              console.log('data', data);
+              var artist = data.artists[0];
+              $('#artist-image').attr('src', artist.thumbnailUrl);
+              $('#artist-name').html(artist.name);
+              $('#video-title').html(data.title);
             });
-            
+
             console.log('Switching colors for isrc: ' + isrc);
 
             $('.col-md-2').each(function(index, elem) {
