@@ -103,6 +103,7 @@
         </div>
       </div>
 
+      <div class="logo loader" id="loader"></div>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -121,6 +122,7 @@
           var isrc = isrcs[currentIndex];
 
           $('#info').fadeOut(100);
+          $('#loader').hide();
 
           $.get('https://ct4zm9ph9i.execute-api.us-east-1.amazonaws.com/dev/list_bucket?isrc=' + isrc, function(rgb_values){
 
